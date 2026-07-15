@@ -1,0 +1,21 @@
+﻿@model EDDY.IS.WidgetProvider.Core.Settings.FormsEngineIncludesModel
+loadScript('@Model.JQueryValidate', null);
+@if (Model.IgnoreBootstrap != "true")
+{
+    <text>
+        loadCss('@Model.BootstrapCSS', null);
+    </text>
+}
+
+@if (Model.NoFontAwesome != "true")
+{
+    <text>
+        loadCss('@Model.FontAwesome', null);
+    </text>
+}
+@if (Model.NoAnimate != "true")
+{
+    <text>
+        loadCss('@Model.AnimateCSS', null);
+    </text>
+}

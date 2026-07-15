@@ -1,0 +1,65 @@
+﻿@model EDDY.IS.WidgetProvider.Core.ComponentModels.GPListingApiModel
+
+@foreach (var listing in Model.AdPlacementList)
+{
+    @if (!String.IsNullOrWhiteSpace(listing.CSSModel) && Model.LoadExternalResources)
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/PartialViews/CustomCSS.cshtml", listing.CSSModel)
+    }
+
+    if (listing.NoFontFace != "true" && Model.LoadExternalResources)
+    {
+        <text>loadCss('@Model.AdListingApiFontFace', null);</text>
+    }
+
+    @if (listing.NoAdListingAPI != "true" && Model.LoadExternalResources)
+    {
+        <text>loadCss('@Model.AdCSSFile', null);</text>
+    }
+
+    <text>
+        jQuery('#@listing.RenderingDiv').html("
+    </text>
+
+    @if (listing.Creative == GPListingApiCreative.Default)
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/GPListingApi/Default.cshtml", listing)
+    }
+    else if (listing.Creative == GPListingApiCreative.Exclusive)
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/GPListingApi/Exclusive.cshtml", listing)
+    }
+    else if (listing.Creative == GPListingApiCreative.CustomCreative)
+    {
+        @Html.Raw(listing.RenderedAds)
+    }
+
+    @foreach (var pixel in listing.ImpressionPixels)
+    {
+        @Html.Raw(pixel);
+    }
+
+    @if (listing.IsTesting) 
+    {
+        @Html.Raw("<!-- AGService Results Returned -->");
+    }
+    
+    <text>");</text>
+
+    @if(!Model.UpdateWidget)
+    {
+    <text>
+        var widget_adListings = widget_adListings || [];
+        widget_adListings.push('@listing.RenderingDiv');
+        var EddyAdListingApi = (function () {
+            return {
+                reload: function(settings) {
+                    reloadAdListing('@listing.RenderingDiv', settings);
+                }
+            }
+        })();
+    </text>
+    }
+
+}
+@Html.Raw(Model.JavaScriptContents);

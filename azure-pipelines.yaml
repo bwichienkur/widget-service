@@ -1,0 +1,59 @@
+trigger:
+  branches:
+    include:
+      - development
+      - qa
+      - uat
+
+parameters:
+- name: runRollback
+  displayName: 'Choose Pipeline Action (Deployment = Default, Rollback = Manual)'
+  type: string
+  default: Deployment
+  values:
+    - Deployment
+    - RollBack
+
+- name: revision
+  displayName: 'Rollback Revision (Required for Rollback) — Revision-1 is the most recent backup'
+  type: string
+  default: ''
+
+pool:
+  name: 'Back Office'
+  demands:
+    - Agent.OS -equals Windows_NT
+
+resources:
+  repositories:
+    - repository: PipelineTemplates
+      type: git
+      name: Technology Management/AzurePipelines
+      ref: refs/heads/V1.0
+
+stages:
+- stage: CICD_Widget
+  displayName: "CI/CD - Widget"
+  condition: eq('${{ parameters.runRollback }}', 'Deployment')
+  jobs:
+  - template: pipelines/templates/build-deploy.yaml@PipelineTemplates
+    parameters:
+      app: Widget
+      solution: 'WidgetProviderService.sln'
+      appPool: 'widget.educationdynamics.com'
+      serverDestPath: 'F:\inetpub\wwwroot\widget.educationdynamics.com'
+      NugetPackageConfig: 'nuget.config'
+      buildConfiguration: 'Release'
+      PublishProfile: 'NonProd'
+
+- stage: RollBack_Widget
+  displayName: "RollBack - Widget"
+  condition: eq('${{ parameters.runRollback }}', 'RollBack')
+  jobs:
+  - template: pipelines/templates/rollback.yaml@PipelineTemplates
+    parameters:
+      app: Widget
+      appPool: 'widget.educationdynamics.com'
+      serverDestPath: 'F:\inetpub\wwwroot\widget.educationdynamics.com'
+      Revision: ${{ parameters.revision }}
+      runRollback: ${{ parameters.runRollback }}

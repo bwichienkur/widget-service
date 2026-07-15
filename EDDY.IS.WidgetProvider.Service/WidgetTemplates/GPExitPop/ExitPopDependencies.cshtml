@@ -1,0 +1,30 @@
+﻿@using EDDY.IS.WidgetProvider.Core.Extensions
+@model EDDY.IS.WidgetProvider.Core.ComponentModels.GPExitPopModel
+loadScript('@Model.JQueryModalJs', null);
+loadCss('@Model.JQueryModalCss', null);
+loadCss('@Model.JQueryModalBefore', null);
+
+function attachBeforeExit(){
+    var isMobileDevice = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
+
+    if(isMobileDevice != true && window.location.pathname != '/' && widget_readCookie('ExitPop') == null) {
+
+         var adAggregatorLigth = new AdAggregator();
+         adAggregatorLigth.canRender(getWidgetRequest());
+
+         var mouseTracker = new MouseTracker(function(){adAggregatorLigth.getAds(getWidgetRequest(), 'displayAds')});
+         mouseTracker.runMouseTracker();
+    }
+}
+
+$( document ).ready(function() {
+    attachBeforeExit();
+    console.log( "ready!" );
+
+   jQuery(document).ready(function(){
+    var head = document.head;
+    var style = document.createElement('style');
+    style.innerHTML = "@Html.Raw(Model.AdCSSFile.CleanContent())";
+    head.appendChild(style);
+    });
+    });

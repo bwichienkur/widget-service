@@ -1,0 +1,8 @@
+﻿@using EDDY.IS.WidgetProvider.Core.Extensions
+@model string
+    jQuery(document).ready(function(){
+    var head = document.head;
+    var style = document.createElement('style');
+    style.innerHTML = "@Html.Raw(Model.CleanContent())";
+    head.appendChild(style);
+    });

@@ -1,0 +1,75 @@
+﻿@model EDDY.IS.WidgetProvider.Core.ComponentModels.WizardFormModel
+loadScript('@Model.FormsEngineServiceUrl', loadFe);
+
+@if (!String.IsNullOrWhiteSpace(Model.CSSModel))
+{
+    @await Html.PartialAsync("~/WidgetTemplates/PartialViews/CustomCSS.cshtml", Model.CSSModel)
+}
+
+function loadFe() {
+
+    window.FormsEngine = window.FormsEngine || {};
+    window.FormsEngine.RenderingStrategy = 'WIZARDPROFESSIONALBOOTSTRAP';
+
+    window.FormsEngine.RenderingDiv = '@Model.RenderingDiv';
+    window.FormsEngine.TrackId = '@Model.CampaignTrackId';
+    window.FormsEngine.TemplateId = @Model.TemplateId;
+    window.FormsEngine.ApplicationId = @Model.ApplicationId;
+    window.FormsEngine.WidgetRequestGuid = '@Model.WidgetRequestGuid';
+    window.FormsEngine.WidgetName = '@Model.RenderingDiv';
+    window.FormsEngine.SelfContained = true;
+    window.FormsEngine.IsBeta = false;
+    @if (Model.NoBundleCSS == "true")
+    {
+        <text>
+            window.FormsEngine.NoBundleWizardCSS = true;
+        </text>
+    }
+
+    @if (!string.IsNullOrWhiteSpace(Model.LeadSourceUrl) && !string.IsNullOrWhiteSpace(Model.SubSource2))
+    {
+        <text>
+            window.FormsEngine.AdditionalFields = window.FormsEngine.AdditionalFields || [];
+            window.FormsEngine.AdditionalFields.push(['LeadSourceUrl', '@Model.LeadSourceUrl']);
+            window.FormsEngine.AdditionalFields.push(['SubSource2', '@Model.SubSource2']);
+        </text>
+    }
+
+    @if (Model.Theme != null && !string.IsNullOrWhiteSpace(Model.Theme))
+    {
+        <text>
+            window.FormsEngine.Theme = '@Model.Theme';
+        </text>
+    }
+
+    @if (Model.FilterSettings != null && Model.FilterSettings.Any())
+    {
+        <text>
+            window.FormsEngine.PassThruItems = [];
+        </text>
+
+        @foreach (var filter in Model.FilterSettings)
+        {
+            <text>
+                var setting = {};
+                setting.QuestionName = '@filter.Key';
+                setting.Answers = '@filter.Value';
+                window.FormsEngine.PassThruItems.push(setting);
+            </text>
+        }
+    }
+
+    @if (Model.TestMode)
+    {
+        <text>
+            window.FormsEngine.DebugMode = true;
+        </text>
+    }
+    else
+    {
+        <text>
+            window.FormsEngine.DebugMode = false;
+        </text>
+    }
+    window.FormsEngine.LoadForm();
+    };

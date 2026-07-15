@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDDY.IS.WidgetProvider.Service", "EDDY.IS.WidgetProvider.Service\EDDY.IS.WidgetProvider.Service.csproj", "{3C42F13F-480E-4269-99A5-8044ACD71237}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDDY.IS.WidgetProvider.Core", "EDDY.IS.WidgetProvider.Core\EDDY.IS.WidgetProvider.Core.csproj", "{3CFB217D-3553-4FFF-A46F-CCF3D3700266}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDDY.IS.WidgetProvider.Data", "EDDY.IS.WidgetProvider.Data\EDDY.IS.WidgetProvider.Data.csproj", "{18A67C99-8493-44A7-95F8-E4BBEF65D777}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C42F13F-480E-4269-99A5-8044ACD71237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C42F13F-480E-4269-99A5-8044ACD71237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C42F13F-480E-4269-99A5-8044ACD71237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C42F13F-480E-4269-99A5-8044ACD71237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CFB217D-3553-4FFF-A46F-CCF3D3700266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CFB217D-3553-4FFF-A46F-CCF3D3700266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CFB217D-3553-4FFF-A46F-CCF3D3700266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CFB217D-3553-4FFF-A46F-CCF3D3700266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18A67C99-8493-44A7-95F8-E4BBEF65D777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A67C99-8493-44A7-95F8-E4BBEF65D777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A67C99-8493-44A7-95F8-E4BBEF65D777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A67C99-8493-44A7-95F8-E4BBEF65D777}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B30C1FE5-B91D-44AF-B8DD-31B7A9C3B160}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://educationdynamics.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EDDY.IS.WidgetProvider.Service\\EDDY.IS.WidgetProvider.Service.csproj
+		SccProjectName1 = EDDY.IS.WidgetProvider.Service
+		SccLocalPath1 = EDDY.IS.WidgetProvider.Service
+		SccProjectUniqueName2 = EDDY.IS.WidgetProvider.Core\\EDDY.IS.WidgetProvider.Core.csproj
+		SccProjectName2 = EDDY.IS.WidgetProvider.Core
+		SccLocalPath2 = EDDY.IS.WidgetProvider.Core
+		SccProjectUniqueName3 = EDDY.IS.WidgetProvider.Data\\EDDY.IS.WidgetProvider.Data.csproj
+		SccProjectName3 = EDDY.IS.WidgetProvider.Data
+		SccLocalPath3 = EDDY.IS.WidgetProvider.Data
+	EndGlobalSection
+EndGlobal

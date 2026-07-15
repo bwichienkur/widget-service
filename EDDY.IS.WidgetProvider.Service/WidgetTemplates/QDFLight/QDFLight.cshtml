@@ -1,0 +1,143 @@
+﻿@model EDDY.IS.WidgetProvider.Core.ComponentModels.QDFLightModel
+
+@Html.Raw(Model.JavaScriptContents)
+
+@foreach (var qdf in Model.templatePlacements)
+{
+    @if (!string.IsNullOrWhiteSpace(qdf.CSSModel))
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/PartialViews/CustomCSS.cshtml", qdf.CSSModel)
+    }
+
+    
+    if (qdf.NoFontAwesome != "true")
+    {
+        <text>loadCss('@Model.FontAwesome', null);</text>
+    }
+    
+    if (qdf.NoQDFLightCSS != "true")
+    {
+        <text>loadCss('@Model.QDFLightCSS', null);</text>
+    }
+
+    <text>
+        jQuery('#@qdf.RenderingDiv').append("
+    </text>
+    <div class='eddy-form-qdfplugin-container' data-id='qdfpluginStepContainer'>
+        <div class='eddy-form-qdfplugin-header'>
+            <div class='qdfplugin-header-content col-xs-7 col-xs-offset-0 col-sm-7 col-sm-offset-0'>
+            </div>
+        </div>
+        <div class='eddy-form-qdfplugin-body col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 clearfix'>
+            <form data-id='eddynexusform-qdfplugin' name='eddynexusform-qdfplugin' templateid='650' method='POST' action='javascript:void(0)' autocomplete='on'>
+                <div id='@(qdf.RenderingDiv)_ErrorMessage' class='error-summary error'>&nbsp;</div>
+                <div name='step' class='steps' data-id='Step'>
+                    <div class='form-page-step-message' data-id='NameForStep1'>
+                        <p>
+                            @if (!string.IsNullOrEmpty(qdf.HeaderText))
+                                @qdf.HeaderText
+                            else
+                                @qdf.Template.Header
+                        </p>
+                    </div>
+                    @if(qdf.Template.Fields != null && qdf.Template.Fields.Any(f => f.ControlType != EDDY.IS.WidgetProvider.Core.Entities.QDFFieldType.Hidden))
+                    {
+                        <div class='eddy-form-sponsored-link' id='sponsored-link'>
+                            <a class='button' href='#popup1'>Sponsored Listings<i class='fa fa-question-circle' aria-hidden='true'>&nbsp;</i></a>
+                            <div class='overlay' id='popup1' style='visibility:hidden'>
+                                <div class='popup'>
+                                    <a class='close-x' href='#sponsored-link'>× </a>
+                                    <div class='content'> <p><a class='close' href='#sponsored-link'><img class='SponsoredListImage' alt='Sponsored Meaning Explained'></a></p> </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <fieldset name='section' class='sections' data-id='Section'>
+                        @if (!String.IsNullOrEmpty(qdf.Template.SubHeading)) 
+                        {                        
+                            <legend>@qdf.Template.SubHeading</legend>
+                        }
+
+                        @foreach (var field in qdf.Template.Fields)
+                        {
+                            <div class='field-holder form-group @field.Code ' data-controlcode='@field.Code'>
+                                @if(field.ControlType != EDDY.IS.WidgetProvider.Core.Entities.QDFFieldType.Hidden)
+                                {
+                                    <label for='97912'> @field.Label </label>
+                                }
+                                @if (field.ControlType == EDDY.IS.WidgetProvider.Core.Entities.QDFFieldType.Dropdown)
+                                {
+                                    <select controltypename='Drop-Down' 
+                                            id='@(qdf.RenderingDiv + "_" + field.Code)' 
+                                            class='select-field form-control ' 
+                                            label-name='@field.Label'
+                                            name='@field.FieldName'
+                                            data-isrequired='@if (field.IsRequired)
+											{ <text>yes</text> }
+											else
+											{ <text>no</text> }'
+                                            data-dependenton='@if (field.Predecessors != null && field.Predecessors.Count > 0)
+											{ @String.Join(",", field.Predecessors.Select(e => e.Code));
+											}'
+                                            onchange=\"@if (field.UpdateFields != null && field.UpdateFields.Count > 0)
+											{
+                                                <text> qdfBindChange('</text>@qdf.RenderingDiv<text>','</text>@qdf.TrackId<text>',this,'</text>
+                                                @String.Join(",", field.UpdateFields)<text>','</text>
+                                                @qdf.IgnoreTrackId<text>')</text>
+
+											}
+											else
+											{
+                                                            <text> checkClearError(this)</text>
+											}\"
+                                            >
+                                        <option value='' key=''>@field.Watermark</option>
+                                        @foreach (var option in field.Options)
+										{
+                                            <option value='@option.Id' @if (option.Selected)
+											{ <text> selected</text>}>
+                                                @option.Name
+                                            </option>
+										}
+                                    </select>
+								}
+								else if (field.ControlType == EDDY.IS.WidgetProvider.Core.Entities.QDFFieldType.Hidden)
+								{
+                                    <input type='hidden' id='@(qdf.RenderingDiv + "_" + field.Code)' name='@field.FieldName' value='@field.Value' />
+								}
+								else if (field.ControlType == EDDY.IS.WidgetProvider.Core.Entities.QDFFieldType.Textbox)
+								{
+                                    <input type='text' id='@(qdf.RenderingDiv + "_" + field.Code)' name='@field.FieldName' value='@field.Value' 
+                                           placeholder='@field.Watermark'
+                                            onchange=\"@if (field.UpdateFields != null && field.UpdateFields.Count > 0)
+											{
+                                                            <text> qdfBindChange('</text>@qdf.RenderingDiv<text>','</text>@qdf.TrackId<text>',this,'</text>
+                                                            @String.Join(",", field.UpdateFields)<text>')</text>
+											}
+											else
+											{
+                                                            <text> checkClearError(this)</text>
+											}\"       
+                                    />
+								}
+                            </div>
+                        }
+                        @foreach (var field in qdf.AdditionalSettings) { 
+                            <input type='hidden' id='@(qdf.RenderingDiv + "_" + field.Key)' name='@field.Key' value='@field.Value' />
+                        }
+                    </fieldset>
+                </div>
+            </form>
+            <div class='eddy-form-qdfplugin-footer'>
+                <div class='buttons-container'>
+                    <div data-id='qdfplugin-form-submit-button' class='form-submit-button clearfix' onclick=\"submitQdf('@Model.DestinationURL','@qdf.TrackId','@qdf.RenderingDiv','@String.Join(',', qdf.Template.Fields.Select(f => f.Code))', '@String.Join(',', qdf.AdditionalSettings.Select(f => f.Key))', '@qdf.OpenInNewWindow')\">
+<div class='form-submit-button-inner'>
+                            <span data-id='form-submit-button-label' class='form-submit-button-label'>@if(!String.IsNullOrEmpty(qdf.ButtonText)) { @qdf.ButtonText; } else { <text>FIND YOUR SCHOOL</text>}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <text>");</text>
+}

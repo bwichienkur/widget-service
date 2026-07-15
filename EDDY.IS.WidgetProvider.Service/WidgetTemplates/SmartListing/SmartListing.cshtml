@@ -1,0 +1,81 @@
+﻿@model EDDY.IS.WidgetProvider.Core.ComponentModels.SmartListingModel
+loadScript('@Model.FormsEngineServiceUrl', loadSmartListing);
+
+@if (!String.IsNullOrWhiteSpace(Model.CSSModel))
+{
+    @await Html.PartialAsync("~/WidgetTemplates/PartialViews/CustomCSS.cshtml", Model.CSSModel)
+}
+
+function loadSmartListing() {
+    jQuery('#@Model.RenderingDiv').append("<div name='eddyfe_Form'></div><div id='eddyListings'></div>");
+
+    window.FormsEngine = window.FormsEngine || {};
+
+    window.FormsEngine.RenderingStrategy = 'QDF';
+    window.FormsEngine.RenderingDiv = 'eddyfe_Form';
+    window.FormsEngine.PlacementToken = '@Model.PlacementToken'
+    window.FormsEngine.TrackId = '@Model.CampaignTrackId';
+    window.FormsEngine.TemplateId = @Model.TemplateId;
+    window.FormsEngine.ApplicationId = @Model.ApplicationId;
+    window.FormsEngine.Theme = '@Model.Theme';
+    window.FormsEngine.WidgetRequestGuid = '@Model.WidgetRequestGuid';
+    window.FormsEngine.WidgetName = '@Model.RenderingDiv';    
+    window.FormsEngine.SelfContained = true;
+    window.FormsEngine.IsBeta = false;
+
+    @if (!String.IsNullOrWhiteSpace(Model.EddyClickUrl))
+    {
+        <text>
+            window.FormsEngine.EddyClickUrl = '@Model.EddyClickUrl';    
+        </text>
+    }
+    @if(!string.IsNullOrWhiteSpace(Model.LeadSourceUrl) && !string.IsNullOrWhiteSpace(Model.SubSource2))
+    {
+        <text>
+        window.FormsEngine.AdditionalFields = window.FormsEngine.AdditionalFields || [];
+        window.FormsEngine.AdditionalFields.push(['LeadSourceUrl', '@Model.LeadSourceUrl']);
+        window.FormsEngine.AdditionalFields.push(['SubSource2', '@Model.SubSource2']);
+        </text>
+    }
+
+    @if (Model.TestMode)
+    {
+        <text>
+            window.FormsEngine.DebugMode = true;
+        </text>
+    }
+    else
+    {
+        <text>
+            window.FormsEngine.DebugMode = false;
+        </text>
+    }
+
+    @if (!String.IsNullOrWhiteSpace(Model.ButtonText))
+    {
+        <text>
+            FormsEngine.SubmitButtonLabelTextLast = '@Model.ButtonText';
+        </text>
+    }
+    
+    @if(Model.FilterSettings != null && Model.FilterSettings.Any())
+    {
+        <text>
+        window.FormsEngine.PassThruItems = [];   
+        </text>        
+
+        @foreach(var filter in Model.FilterSettings)
+        {
+            <text>
+            var setting = {};
+            setting.QuestionName = '@filter.Key';
+            setting.Answers = '@filter.Value';
+            window.FormsEngine.PassThruItems.push(setting);
+            </text>
+        }
+    }
+    fe_resetSession(false); 
+    window.FormsEngine.LoadForm();
+};
+
+function loadAds(){}

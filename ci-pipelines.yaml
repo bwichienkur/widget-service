@@ -1,0 +1,37 @@
+trigger:
+  branches:
+    include:
+      - feature/*
+
+pr:
+  branches:
+    include:
+      - development
+      - qa
+      - uat
+
+pool:
+  name: 'Back Office'
+  demands:
+    - Agent.OS -equals Windows_NT
+
+resources:
+  repositories:
+    - repository: PipelineTemplates
+      type: git
+      name: Technology Management/AzurePipelines
+      ref: refs/heads/V1.0
+
+stages:
+- stage: CI_Widget
+  displayName: "CI - Widget"
+  jobs:
+  - template: pipelines/templates/ci-build.yaml@PipelineTemplates
+    parameters:
+      app: Widget
+      solution: 'WidgetProviderService.sln'
+      appPool: 'widget.educationdynamics.com'
+      serverDestPath: 'F:\inetpub\wwwroot\widget.educationdynamics.com'
+      NugetPackageConfig: 'nuget.config'
+      buildConfiguration: 'Release'
+      PublishProfile: 'NonProd'

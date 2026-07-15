@@ -1,0 +1,151 @@
+﻿.eddy-form-qdfplugin-container .form-page-step-message * {
+	font-family: Helvetica,Arial,sans-serif;
+	font-style: normal !important;
+}
+
+.eddy-form-qdfplugin-container fieldset {
+	border: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.eddy-form-qdfplugin-container label {
+	font-family: Helvetica,Arial,sans-serif;
+}
+
+.eddy-form-qdfplugin-container .form-control {
+	width: 100%;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555;
+	padding: 6px 12px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,boccx-shadow ease-in-out .15s;
+	border: 1px solid #ccc;
+	color: #555;
+	vertical-align: middle;
+	line-height: 1.428571429;
+	margin-top: 5px;
+}
+
+.eddy-form-qdfplugin-container .form-group {
+	margin-bottom: 15px;
+}
+
+.eddy-form-qdfplugin-container .form-submit-button-label {
+	font-family: Helvetica,Arial,sans-serif
+}
+
+.eddy-form-qdfplugin-container .form-submit-button-inner {
+	padding-top: 11px;
+}
+
+.eddy-form-sponsored-link .button {
+	font-size: 1em;
+	padding: 0;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+	position: relative;
+}
+
+.eddy-form-sponsored-link {
+	margin-bottom: 15px !important;
+}
+
+.eddy-form-sponsored-link a {
+	color: #428bca;
+}
+
+.eddy-form-sponsored-link .button:hover {
+	text-decoration: underline
+}
+
+.eddy-form-sponsored-link .fa-question-circle {
+	display: inline-block;
+	content: url("https://forms.educationdynamics.com/Templates/Common/images/fa-question-circle.png");
+	vertical-align: middle;
+	margin-top: -5px;
+	margin-left: 5px;
+}
+
+
+
+.eddy-form-sponsored-link .SponsoredListImage {
+	content: url("https://forms.educationdynamics.com/Templates/Common/images/sponsored-explained-v2.png");
+}
+
+.eddy-form-sponsored-link .overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+	.eddy-form-sponsored-link .overlay:target {
+		visibility: visible!important;
+		opacity: 1;
+		z-index: 1000;
+	}
+
+.eddy-form-sponsored-link .popup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 5px;
+	width: 400px;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+
+
+	.eddy-form-sponsored-link .popup .close-x {
+		position: absolute;
+		top: 20px;
+		right: 30px;
+		transition: all 200ms;
+		font-size: 30px;
+		font-weight: bold;
+		text-decoration: none;
+		color: #333;
+	}
+
+		.eddy-form-sponsored-link .popup .close-x:hover {
+			color: #8E6D83;
+		}
+
+	.eddy-form-sponsored-link .popup .content {
+		overflow: auto;
+	}
+
+	.eddy-form-sponsored-link .popup .close {
+		float: none;
+		opacity: 1;
+	}
+
+@media(max-width: 768px) {
+
+	.eddy-form-sponsored-link .popup {
+		width: 90%;
+	}
+}
+
+/** error **/
+
+.eddy-form-qdfplugin-container input.error,
+.eddy-form-qdfplugin-container select.error {
+	border-color: #B9121B;
+}
+
+.eddy-form-qdfplugin-container label.error {
+	font-size: 12px;
+	font-weight: normal;
+	color: #b94a48;
+}

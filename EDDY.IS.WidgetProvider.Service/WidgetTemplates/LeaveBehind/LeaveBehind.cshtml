@@ -1,0 +1,30 @@
+﻿@model EDDY.IS.WidgetProvider.Core.ComponentModels.LeaveBehindModel
+function attachLeaveBehind(){
+    var isMobileDevice = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
+
+    if(isMobileDevice != true && window.location.pathname != '/' && widget_readCookie('EddyLeaveBehind') == null) {
+            jQuery('@Html.Raw(Model.jQuerySelector)').click(function(event) {
+            event.preventDefault();
+            widget_setCookie('EddyLeaveBehind', 'true', 2);
+            var newWin = window.open(jQuery(this).attr("href"), '_blank'); 
+
+            if(!newWin || newWin.closed || typeof newWin.closed=='undefined') {
+                window.location.href = jQuery(this).attr("href");
+            }
+            else {
+                window.location.href = "@Model.TargetUrl";
+                newWin.focus();
+            }
+        });
+    }
+}
+
+if(document.readyState === 'ready' || document.readyState === 'complete') {
+    attachLeaveBehind();
+}
+else
+{
+    window.onload = function(){
+        attachLeaveBehind();
+    }
+}

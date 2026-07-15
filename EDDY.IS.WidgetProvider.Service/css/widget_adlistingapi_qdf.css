@@ -1,0 +1,107 @@
+﻿.eddy-qdf-listing .item-wrapper {
+	background: #fff;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-bottom: 1em;
+	border: 1px solid #b1b1b5;
+	box-shadow: 0 2px 5px rgb(0 0 0 / 15%);
+}
+
+.eddy-qdf-listing .item {
+	display: flex;
+	flex-direction: row;
+	padding: 1.5em;
+	text-decoration: none;
+	color: #445;
+}
+
+.eddy-qdf-listing .item h3 {
+	font-size: 1.75em;
+	margin: 0 0 .5em 0;
+	color: #1971b4;
+}
+
+.eddy-qdf-listing .item-info {
+	flex: 1 1 70%;
+}
+
+.eddy-qdf-listing .item-img {
+	display: flex;
+	flex: 1 1 auto;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-left: 3em;
+}
+
+.eddy-qdf-listing .item-desc {
+	max-height: 15em;
+	font-size: .95em;
+	line-height: 1.34em;
+	overflow: hidden;
+}
+
+.eddy-qdf-listing .item-btn {
+	background: linear-gradient( to bottom, rgba(246, 132, 34, 1) 0%, rgba(241, 96, 38, 1) 100% );
+	border-color: #ca4927;
+	border-bottom: 3px solid #ca4927;
+	border-radius: 10px;
+	color: #fff;
+	padding: 1em 0;
+	font-size: .95em;
+	font-weight: 700;
+	text-transform: uppercase;
+	width: 100%;
+	height: 3.5em;
+	margin-top: 1.5em;
+	text-align: center;
+}
+
+.eddy-qdf-listing .item .item-link {
+	margin-top: 1em;
+	font-size: .9em;
+	text-decoration: underline;
+	color: #1971b4;
+}
+
+
+buttonText:before {
+	content: 'Visit School';
+}
+
+
+@media (max-width: 425px) {
+	.eddy-qdf-listing {
+		font-size: .8em;
+	}
+}
+
+
+@media (max-width:767px) {
+	.eddy-qdf-listing .item {
+		flex-direction: column;
+	}
+	.eddy-qdf-listing .item-img {
+		flex-direction: row;
+		margin: 1.5em 0 0 0;
+	}
+	.eddy-qdf-listing .item-img img {
+		max-width: 150px;
+		height: auto;
+		margin-right: 1em;
+	}
+	.eddy-qdf-listing .item .item-link {
+		display: none;
+	}
+	.eddy-qdf-listing .item-btn {
+		margin: 0;
+		flex: 0 0 40%;
+		margin-left: 1em;
+	}
+}
+
+@media (max-width: 1000px) {
+	.eddy-qdf-listing {
+		font-size: .9em;
+	}
+}

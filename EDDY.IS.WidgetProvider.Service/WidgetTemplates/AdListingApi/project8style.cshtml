@@ -1,0 +1,32 @@
+﻿@model EDDY.IS.WidgetProvider.Core.Entities.AdListingApiPlacement
+
+<div id='soloWrapper'>
+	<div class='soloSponsoredTop'><a href='#soloPopup1' class='soloSponsored' name='sponsored'>Sponsored Listings</a></div>
+	<div class='soloOverlay' id='soloPopup1' style='visibility:hidden;'><div class='soloPopup'><h3>Sponsored explained.</h3><a class='soloClose' href='#sponsored'>X</a><div class='soloContent'><p>EducationDynamics receives compensation for the featured schools on our websites ('Sponsored Schools', 'Sponsored Listings', 'Sponsored Results').</p><p>Compensation may impact where the Sponsored Schools appear, including as a match through our matching services tool, the order in which they appear in a listing, and/or their ranking. Our websites do not provide a comprehensive list of all schools. By providing information or agreeing to be contacted by a Sponsored School, you are in no way obligated to apply to or enroll with the school.</p><p>Your trust is our priority.</p><div class='soloPopupFooter'><a class='soloCloseBtn' href='#sponsored'>Got it!</a></div></div></div></div>
+
+	@foreach (var adItem in Model.AdItemList)
+	{
+		<text>
+			<div class='soloItem @adItem.InstitutionName' school-name='@adItem.InstitutionName'>
+				<div class='soloLogoWrapper'>
+					<div class='soloLogoWrapperInner'>
+						<a class='inactiveLink' href='@adItem.ClickUrl' target='_blank'><img class='soloLogo' loading='lazy' src='@adItem.SmallLogoUrl' alt='@adItem.InstitutionName' /></a>
+					</div>
+					<a class='inactiveLink soloButton grande @(!adItem.IsLeadUrl ? "isClick" : string.Empty)' href='@adItem.ClickUrl' target='_blank'>
+						<div><buttonText></buttonText></div>
+					</a>
+				</div>
+				<a class='inactiveLink' href='@adItem.ClickUrl' target='_blank'>
+					<div class='soloButton venti'><buttonText></buttonText></div>
+				</a>
+				<div class='soloDetails'>
+					<a class='inactiveLink' href='@adItem.ClickUrl' target='_blank'><div class='soloHeadline'>@adItem.InstitutionName</div></a>
+					<div class='soloDescription line-clamp line-clamp-4'>@adItem.Description</div>
+					<a class='inactiveLink soloButton venti2' href='@adItem.ClickUrl' target='_blank'>
+						<div><buttonText></buttonText></div>
+					</a>
+				</div>
+			</div>
+		</text>
+	}
+</div>

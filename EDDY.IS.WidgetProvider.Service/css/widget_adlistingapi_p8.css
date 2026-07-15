@@ -1,0 +1,594 @@
+﻿buttonText:before {
+	content: 'Visit School\'s Site';
+}
+
+.Educationconnection buttonText:before {
+	content: 'Find More Schools';
+}
+
+.Citizens.Bank buttonText:before {
+	content: 'Learn More';
+}
+
+.Elkins.College buttonText:before, .Keystone.College buttonText:before, .Caldwell.University buttonText:before, .Columbia.International buttonText:before, .Dakota.Wesleyan buttonText:before, .Eastern.University buttonText:before, .University.of.Hartford buttonText:before, .Mount.Olive buttonText:before, .Saint.Francis buttonText:before {
+	content: 'Chat Live';
+}
+
+.Search buttonText:before, .Degree buttonText:before {
+	content: 'Search Ads';
+}
+
+.Universities.com buttonText:before {
+	content: 'Get Started';
+}
+
+.v5 buttonText:before {
+	content: 'Request Info';
+}
+
+.isClick buttonText:before {
+	content: 'Visit School\'s Site';
+}
+
+#soloWrapper {
+	display: inline;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+	border-bottom: 1px #ccc solid;
+	clear: both;
+	min-height: 180px;
+}
+
+.soloSponsoredTop, .soloSponsoredBottom {
+	text-align: right;
+}
+
+.soloSponsoredTop {
+	margin-bottom: 5px;
+}
+
+.soloSponsored {
+	font-size: 12px;
+	text-decoration: none;
+	color: #5a5f73;
+	font-weight: 700;
+}
+
+	.soloSponsored:hover {
+		text-decoration: underline;
+	}
+
+.soloNumber {
+	display: none;
+}
+
+.soloItem {
+	cursor: pointer;
+	min-height: 80px;
+	margin-bottom: 10px;
+	background-color: #fff;
+	position: relative;
+	border: 1px solid #e4e4e4;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	text-align: center;
+}
+
+.soloLogoWrapper {
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	max-width: 160px;
+	width: 100%;
+	min-height: unset;
+	margin: 0 auto;
+}
+
+div.soloLogoWrapperInner {
+	/*display: flex;*/
+	width: inherit;
+	flex-direction: column;
+	justify-content: normal;
+	padding: 6px 5px;
+}
+
+img.soloLogo {
+	width: inherit;
+	max-width: 124px;
+	padding: 0;
+	margin: auto;
+	height: auto;
+}
+
+.v3 img.soloLogo {
+	max-width: 124px;
+}
+
+.v4 img.soloLogo, .v5 img.soloLogo {
+	max-width: 120px;
+}
+
+.soloButton {
+	background: linear-gradient(to bottom, rgba(223, 151, 15, 1) 0%, rgba(153, 68, 0, 1) 100%);
+	/*border: 1px solid #940;*/
+	color: #fff;
+}
+
+.grande {
+	padding: 4px 0;
+	font-size: 11px;
+	font-weight: 400;
+	display: block;
+	width: 90%;
+	max-width: 170px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-align: center;
+	margin: 0 auto;
+	position: absolute;
+	bottom: 5px;
+}
+
+.venti, .venti2 {
+	padding: 8px 2px;
+	font-size: 14px;
+	font-weight: 700;
+	width: 130px;
+	margin: auto;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	/*-webkit-box-shadow: 0px 5px 6px -3px rgba(92, 91, 92, 1);
+  -moz-box-shadow: 0px 5px 6px -3px rgba(92, 91, 92, 1);
+  box-shadow: 0px 5px 6px -3px rgba(92, 91, 92, 1);*/
+	text-align: center;
+}
+
+.venti {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	display: none;
+}
+
+.venti2 {
+	display: none;
+}
+
+.soloDetails, .soloSchoolInfo {
+	display: none;
+	border-left: 1px dotted #999;
+	overflow: hidden;
+	/*height: 100%;*/
+	padding: 0 5px 5px;
+	min-height: inherit;
+	background-color: #efefef;
+	text-align: left;
+}
+
+.v5 .soloDetails, .v8 .soloDetails {
+	display: none;
+}
+
+.soloHeadline, .soloSchoolName h3 {
+	text-align: left;
+	font-size: 15px;
+	color: #2165a2;
+	font-weight: 700;
+	text-decoration: none;
+	margin: 0 0 3px;
+	padding: 8% 1%;
+	line-height: 1.3rem;
+}
+
+.soloDescription {
+	font-size: 12px;
+	color: #000;
+	text-align: left;
+	overflow: hidden;
+	font-weight: 400;
+}
+
+	.soloDescription > ul li {
+		background: none;
+		margin: initial;
+		padding: 0;
+	}
+
+	.soloDescription ul {
+		margin: initial !important;
+		padding: initial !important;
+	}
+
+		.soloDescription ul li {
+			color: inherit !important;
+		}
+
+		.soloDescription ul br {
+			display: none;
+		}
+
+.v1 .soloDescription ul {
+	margin: 0 0 0 15px !important;
+}
+
+.soloDescription > g {
+	color: #2165a2;
+}
+
+	.soloDescription > g:before {
+		content: " ";
+	}
+
+.italic {
+	font-style: italic;
+}
+
+.stCta {
+	font-weight: 700;
+}
+
+.startAshford {
+	color: #ec7c10;
+}
+
+.clickThru, .snippet, .stSnippet, .snippet1 {
+	color: #2165a2;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/** eddy styling **/
+
+/*soloSchoolInfo ul {
+  padding-left: 290px;
+}*/
+
+.soloSchoolInfo ul li {
+	margin-left: 0px;
+	padding-left: 0px;
+	margin-bottom: 4px;
+}
+
+	.soloSchoolInfo ul li a {
+		text-decoration: none;
+	}
+
+		.soloSchoolInfo ul li a:hover {
+			color: ##444857;
+			text-decoration: underline;
+		}
+
+.soloProgramsHeader {
+	font-size: 13px;
+	margin-top: 10px;
+	font-weight: 700;
+}
+
+.soloProgramsList {
+	font-size: 12px;
+	line-height: 17px;
+	padding: 0;
+	list-style-type: none;
+	margin: 10px 0;
+	overflow: hidden;
+	color: ##444857;
+}
+
+.soloProgramsHeader, .soloProgramsList {
+	display: none;
+}
+
+	.soloProgramsList li {
+		display: inline;
+	}
+
+.soloProgram:nth-last-child(n+2):after {
+	content: '|';
+	margin: 0 2px;
+}
+
+.soloProgramsList a {
+	color: ##444857;
+	font-weight: 400;
+}
+
+/* Disclosure Popup */
+
+.box {
+	padding: 0 5px;
+	text-align: left;
+}
+
+.button {
+	font-size: 1em;
+	padding: 10px;
+	color: #fff;
+	border-radius: 20px/50px;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+}
+
+	.button:hover {
+		text-decoration: underline
+	}
+
+.soloOverlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 100ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+	.soloOverlay:target {
+		visibility: visible;
+		opacity: 1;
+		z-index: 1000;
+	}
+
+.soloPopup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 5px;
+	width: 70%;
+	position: relative;
+	transition: all 1s ease-in-out;
+}
+
+	.soloPopup h2 {
+		margin-top: 0;
+		color: #333;
+	}
+
+	.soloPopup .soloClose {
+		position: absolute;
+		top: 20px;
+		right: 30px;
+		transition: all 200ms;
+		font-size: 30px;
+		font-weight: bold;
+		text-decoration: none;
+		color: #333;
+	}
+
+		.soloPopup .soloClose:hover {
+			color: #06D85F;
+		}
+
+	.soloPopup .soloContent {
+		overflow: auto;
+		font-size: 12px;
+		line-height: 18px;
+	}
+
+		.soloPopup .soloContent p {
+			padding-bottom: 15px;
+		}
+
+.soloPopupFooter {
+	padding: 29px 20px;
+	margin-top: 15px;
+	text-align: right;
+	border-top: 1px solid #e5e5e5;
+}
+
+.soloCloseBtn {
+	background: #f6a240;
+	-webkit-box-shadow: 3px 6px 11px 0 rgba(54,54,54,.43);
+	-moz-box-shadow: 3px 6px 11px 0 rgba(54,54,54,.43);
+	box-shadow: 3px 6px 11px 0 rgba(54,54,54,.43);
+	margin: 15px;
+	color: #fff;
+	text-transform: uppercase;
+	border: 3px solid #F67C00;
+	border-radius: 0;
+	font-size: 18px !important;
+	transition: 0.3s;
+	padding: 8px 25px;
+}
+
+	.soloCloseBtn:hover {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		color: #fff;
+		background: #F67C00;
+		text-decoration: none;
+	}
+
+
+
+@media (min-width: 300px) {
+	.soloLogoWrapper {
+		/*max-width: 228px;*/
+		float: left;
+	}
+
+	.soloDetails, .soloSchoolInfo {
+		display: block;
+	}
+
+	.soloDescription.line-clamp {
+		display: block;
+	}
+
+	.soloHeadline, .soloSchoolName h3 {
+		line-height: 15px;
+		margin: 5px 0 10px;
+		padding: 0;
+	}
+
+	.grande {
+		margin: 0 auto;
+		position: absolute;
+		bottom: 7px;
+		max-width: 150px;
+		width: 90%;
+	}
+}
+
+@media (min-width: 300px) and (max-width: 370px) {
+	.soloHeadline, .soloSchoolName h3 {
+		font-size: 15px;
+		line-height: 13px;
+	}
+}
+
+@media (max-width: 640px) {
+}
+
+@media (min-width: 620px) and (max-width:767px) {
+	.soloItem {
+		min-height: 80px;
+	}
+
+	.soloHeadline, .soloSchoolName h3 {
+		font-size: 17px;
+		/*margin-right: -70px;*/
+	}
+
+	.venti {
+		display: block;
+	}
+
+	.grande {
+		display: none;
+	}
+
+	.soloDetails, .soloSchoolInfo {
+		padding: 0 154px 5px 10px; /*0 145px 0 10px;*/
+	}
+
+	.soloDescription.line-clamp {
+		padding-right: 50px !important;
+	}
+
+	.soloLogo {
+		padding-top: 15%;
+		padding-bottom: 15%;
+	}
+}
+
+@media (min-width: 1000px) {
+	.soloItem {
+		min-height: 80px;
+	}
+
+	.soloHeadline, .soloSchoolName h3 {
+		font-size: 17px;
+		/*margin-right: -70px;*/
+	}
+
+	.venti {
+		display: block;
+	}
+
+	.grande {
+		display: none;
+	}
+
+	.soloDetails, .soloSchoolInfo {
+		padding: 0 154px 5px 10px; /*0 145px 0 10px;*/
+	}
+
+	.soloDescription.line-clamp {
+		padding-right: 50px !important;
+	}
+
+	.soloLogo {
+		padding-top: 15%;
+		padding-bottom: 15%;
+	}
+}
+
+@media(max-width: 768px) {
+	.soloPopup {
+		width: 90%;
+	}
+}
+
+/* Line Clamping */
+
+.line-clamp {
+	display: block;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	position: relative;
+	line-height: 1.1em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0 0 1px 0 !important;
+}
+
+	.line-clamp:after {
+		content: '...';
+		text-align: right;
+		bottom: 0;
+		right: 0;
+		width: 25%;
+		display: block;
+		position: absolute;
+		height: calc(1em * 1.19);
+		background: linear-gradient(to right, rgba(239, 239, 239, 0), rgba(239, 239, 239, 1) 75%);
+	}
+
+@supports (-webkit-line-clamp: 1) {
+	.line-clamp:after {
+		display: none !important;
+	}
+}
+
+.line-clamp-1 {
+	-webkit-line-clamp: 1;
+	height: calc(1.1em * 0.986 * 1);
+}
+
+.line-clamp-2 {
+	-webkit-line-clamp: 2;
+	height: calc(1.1em * 0.986 * 2);
+}
+
+.line-clamp-3 {
+	-webkit-line-clamp: 3;
+	height: calc(1.1em * 0.986 * 3);
+}
+
+.line-clamp-4 {
+	-webkit-line-clamp: 4;
+	height: calc(1.1em * 0.986 * 4);
+}
+
+.line-clamp-5 {
+	-webkit-line-clamp: 5;
+	height: calc(1.1em * 0.986 * 5);
+}
+
+.line-clamp-6 {
+	-webkit-line-clamp: 5;
+	height: calc(1.1em * 0.986 * 6);
+}
+
+.line-clamp-7 {
+	-webkit-line-clamp: 5;
+	height: calc(1.1em * 0.986 * 7);
+}
+
+.line-clamp-8 {
+	-webkit-line-clamp: 5;
+	height: calc(1.1em * 0.986 * 8);
+}
+
+/* End required CSS. */
+.inactiveLink {
+	text-decoration: none;
+	color: inherit;
+}

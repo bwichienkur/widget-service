@@ -1,0 +1,52 @@
+﻿@model EDDY.IS.WidgetProvider.Core.Entities.AdListingApiPlacement
+
+<div class='exit-wrapper'>
+    <div id='headerimage'>
+        <div class='headertext'>Wait! Before you Leave!</div>
+        <div class='headertext subtext'>We have found additional sponsored schools you might be interested in!</div>
+        <div class='sponsored-header-text'><a href='#disclosurePopup1' class='disclosureSponsored'>Sponsored Schools</a></div>
+    </div>
+</div>
+<div class='exit-wrapper'>
+    @foreach (var adItem in Model.AdItemList)
+    {
+        <text>
+            <div class='exit-augmented animated fadeInUp'>
+                <div class='exit-listing' onclick="window.open('@adItem.ClickUrl','_blank')">
+                    <div class='exit-logo-wrapper'>
+                        <div class='exit-logo-wrapper-inner'>
+                            <img class='exit-logo' src='@adItem.SmallLogoUrl' alt='@adItem.SmallLogoUrl' />
+                            <div class='exit-learn-more'>
+
+                            </div>
+                            <div class='exit-visit-site-small'>
+                                <a href='@adItem.ClickUrl' target="_blank" style='cursor: pointer; color: inherit; text-decoration: none;'/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='exit-grande'>
+                        <a href='@adItem.ClickUrl' target="_blank" style='cursor: pointer; color: inherit; text-decoration: none;'>
+                            Visit School's Site
+                        </a>
+                    </div>
+                    <div class='exit-details'>
+                        <div class='exit-headline'>@adItem.InstitutionName</div>
+                        <div class='exit-description line-clamp line-clamp-4'>@adItem.Description</div>
+                    </div>
+                </div>
+            </div>
+        </text>
+    }
+    <div class='sponsored-footer-text'><a href='#disclosurePopup1' class='disclosureSponsored'>Sponsored Schools</a></div>
+    <div class='disclosureOverlay' id='disclosurePopup1'>
+        <div class='disclosurePopup'>
+            <h3>Sponsored explained.</h3><a class='disclosureClose' href='#'>X</a>
+            <div class='disclosureContent'>
+                <p>EducationDynamics receives compensation for the featured schools on our websites ('Sponsored Schools', 'Sponsored Listings', 'Sponsored Results').</p>
+                <p>Compensation may impact where the Sponsored Schools appear, including as a match through our matching services tool, the order in which they appear in a listing, and/or their ranking. Our websites do not provide a comprehensive list of all schools. By providing information or agreeing to be contacted by a Sponsored School, you are in no way obligated to apply to or enroll with the school.</p>
+                <p>Your trust is our priority.</p>
+                <div class='disclosurePopupFooter'><a class='disclosureCloseBtn' href='#'>Got it!</a></div>
+            </div>
+        </div>
+    </div>
+</div>

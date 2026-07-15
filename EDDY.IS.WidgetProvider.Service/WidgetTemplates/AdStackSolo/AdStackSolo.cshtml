@@ -1,0 +1,34 @@
+﻿@model EDDY.IS.WidgetProvider.Core.ComponentModels.AdStackSoloModel
+
+function loadAds() {
+@foreach (var placement in Model.AdPlacementList)
+{
+    @if (!String.IsNullOrWhiteSpace(placement.CSSModel))
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/PartialViews/CustomCSS.cshtml", placement.CSSModel)
+    }
+
+    <text>
+        jQuery('[id=@placement.RenderingDiv]').eddyAd({
+        placementtoken: '@placement.PlacementToken',
+        trackId: '@placement.CampaignTrackId',
+        useIframe: false,
+        skipIframeCheck: true,
+        widgetName: '@placement.RenderingDiv',
+        widgetRequestGuid: '@placement.WidgetRequestGuid',
+        testmode: @placement.TestMode.ToString().ToLower(),
+        ExtendedFields: {
+    </text>
+    @foreach (var setting in placement.FilterSettings)
+    {
+        <text>
+            @setting.Key : '@setting.Value',
+        </text>
+    }
+    <text>
+        }
+        });
+    </text>
+}
+}
+

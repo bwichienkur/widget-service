@@ -1,0 +1,23 @@
+﻿@model EDDY.IS.WidgetProvider.Core.ComponentModels.GPExitPopModel
+
+@{
+    <text>
+        jQuery('#@Model.Container').append("
+    </text>
+    <div id='displayAds' class='modal' style='display:none !important; width: 80% !important; max-width: 80% !important; opacity: 1; display: inline-block; overflow: scroll; height: 90%; padding: 60px;'>
+        <a class='close-modal' id='modalClose' onclick='javascript:$.modal.close()' style='cursor:pointer'></a>
+    </div>
+
+    <div class='modal fade before-ads' id='waitingRoom' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+        <div style='text-align: center'>
+            <p style='padding-top: 5px; font-size: 20px; font-weight: 700; text-transform: uppercase; color: #2165a2; font-family: ' Lato', sans-serif; text-shadow: 1px 1px 1px #ccc;'>
+                WAIT! BEFORE YOU LEAVE!
+            </p>
+            <p style='font-size: 18px; text-transform: capitalize; font-weight: 400; color: #000;'>
+                We Have Found Additional Sponsored Schools You Might Be Interested In!
+            </p>
+            <img src='https://widget.educationdynamics.com/images/loader.gif' style='margin: auto; display: block; margin-left: auto; margin-right: auto' />
+        </div>
+    </div>
+    <text>");</text>
+}

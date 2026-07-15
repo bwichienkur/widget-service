@@ -1,0 +1,54 @@
+﻿@model EDDY.IS.WidgetProvider.Core.ComponentModels.AdListingApiModel
+
+
+@foreach (var listing in Model.AdPlacementList)
+{
+    @if (!string.IsNullOrWhiteSpace(listing.CSSModel) && Model.LoadExternalResources)
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/PartialViews/CustomCSS.cshtml", listing.CSSModel)
+    }
+
+    if (listing.NoFontFace != "true" && Model.LoadExternalResources)
+    {
+        <text>loadCss('@Model.AdListingApiFontFace', null);</text>
+    }
+
+    @if (listing.NoAdListingAPI != "true" && Model.LoadExternalResources)
+    {
+        <text>
+            loadCss('@Model.AdCSSFile', null);
+        </text>
+    }
+
+    <text>
+        jQuery('#@listing.RenderingDiv').html("
+    </text>
+
+    @if (listing.Creative == EDDY.IS.WidgetProvider.Core.Entities.AdListingApiCreative.Default)
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/AdListingApi/default.cshtml", listing)
+    }
+    else if (listing.Creative == EDDY.IS.WidgetProvider.Core.Entities.AdListingApiCreative.Project8Style)
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/AdListingApi/project8style.cshtml", listing)
+    }
+    else if (listing.Creative == EDDY.IS.WidgetProvider.Core.Entities.AdListingApiCreative.QDFAdListingStyle)
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/AdListingApi/qdfadlistingstyle.cshtml", listing)
+    }
+    <text>");</text>
+
+    @if(Model.LoadExternalResources)
+    { 
+        <text>
+            var EddyAdListingApi = (function () {
+                return {
+                    reload: function(settings) {
+                        reloadAdListing('@listing.RenderingDiv', settings);
+                    }
+                }
+            })();
+        </text>
+    }
+}
+@Html.Raw(Model.JavaScriptContents);

@@ -1,0 +1,51 @@
+﻿@model EDDY.IS.WidgetProvider.Core.ComponentModels.QDFModel
+loadScript('@Model.QDFList.First().FormsEngineServiceUrl', loadQDF);
+
+function loadQDF() {
+@foreach (var qdf in Model.QDFList)
+{
+    @if (!String.IsNullOrWhiteSpace(qdf.CSSModel))
+    {
+        @await Html.PartialAsync("~/WidgetTemplates/PartialViews/CustomCSS.cshtml", qdf.CSSModel)
+    }
+
+    <text>
+        jQuery('[id=@qdf.RenderingDiv]').eddyQDF({
+        trackId: "@qdf.CampaignTrackId",
+        templateId: @qdf.TemplateId,
+        targetUrl:"@qdf.TargetUrl",
+        subSource2: "@qdf.SubSource2",
+        leadInitiatingUrl: "@qdf.LeadSourceUrl",
+        widgetName: "@qdf.RenderingDiv",
+        widgetRequestGuid: "@qdf.WidgetRequestGuid",
+    </text>
+    @if (!String.IsNullOrWhiteSpace(qdf.SubId))
+    {
+        <text>
+            sub_1: "@qdf.SubId",
+        </text> 
+    }
+    <text>
+        passThruItems: [
+    </text>
+    @foreach (var setting in qdf.FilterSettings)
+    {
+        <text>
+            { QuestionName: '@setting.Key', Answers: '@setting.Value' },
+        </text>
+    }
+    <text>
+        ],
+    </text>
+    @if(!String.IsNullOrWhiteSpace(qdf.ButtonText))
+    {
+        <text>
+             buttonText:"@qdf.ButtonText"
+        </text>
+    }
+    <text>
+        });
+    </text>
+}
+};
+

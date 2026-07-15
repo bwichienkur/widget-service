@@ -1,0 +1,126 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Find Top Colleges</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find Colleges - Find hundreds of grad schools! Graduate school typically occurs after the completion of a bachelor’s degree.">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        .container {
+            background-color: #f9f9f9;
+        }
+
+        header img {
+            max-width: 300px;
+            padding: 10px;
+            height: auto;
+        }
+
+        header .col-sm-7 {
+            display: flex;
+            align-items: center;
+            justify-content: right;
+        }
+
+        header h2 {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #1971b4;
+            font-size: 2em;
+        }
+
+            header h2 span {
+                font-size: 1.15em;
+            }
+
+        .intro {
+            background-color: #eaeaea;
+            padding: 25px;
+        }
+
+        #eddyws_GlassPanelTest_ErrorMessage {
+            display: none;
+        }
+
+        #eddyws_GlassPanelTest {
+            margin-bottom: 1.5em;
+        }
+
+        @media (max-width: 767px) {
+            header h2 {
+                font-size: 1.5em;
+                text-align: center;
+                margin-bottom: .5em;
+            }
+
+            header img {
+                max-width: 250px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="row">
+                <div class="col-md-5 col-sm-12 text-md-left text-sm-center">
+                    <img src="https://online-cdn.findtopcolleges.com/img/find-colleges.png" alt="Find Colleges" width="400" height="80">
+                </div>
+                <div class="col-md-7 col-sm-12 text-md-right text-sm-center">
+                    <h2>OUR <span>ONLINE COLLEGE</span> PICKS</h2>
+                </div>
+            </div>
+        </header>
+        <div class="row intro">
+            <div class="col-md-12">
+                <p class="mb-0">
+                    Finding the right <strong>online degree program</strong> for you can feel like trying to find a
+                    needle in a haystack. That's why we have outlined our online school selections, some of their
+                    potential benefits, and their most <strong>popular programs among online students*</strong>. Get
+                    more information from one or all of them to help you on your education journey!
+                </p>
+            </div>
+        </div>
+        <div class="partners pt-3 pb-3">
+            <div class="row">
+                <div class="col-lg-9 col-md-12">
+                    <div id="eddyws_GPListingAPIAna"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function createCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = '; expires=' + date.toGMTString();
+            }
+            else
+                var expires = '';
+
+            document.cookie = name + '=' + value + expires + '; path=/';
+        };
+
+        //Emulate TrackID
+        (function () {
+            createCookie("_CampaignTrackID", "CE3CC293-5B74-4945-BAC8-F5312F1618B2");
+        })();
+        
+        function widget_setCookie(name, value, hours) {
+            var expires = "";
+            if (hours) {
+                var date = new Date();
+                date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+    </script>
+    <script src="/api/WidgetProvider/GetWidgetJs?vendorToken=4B908FC8-1081-457D-B509-9BA5B92336F9"></script>
+</body>
+</html>
